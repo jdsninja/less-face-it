@@ -1,7 +1,4 @@
 (function ($) {
-
-	"use strict";
-
 	// Change face
 	$(".settings select").change(function () {
 		var elm = $(elm),
@@ -19,8 +16,6 @@
 
 	});
 
-
 	// Generate face
 	$("#face").faceit('', {skin: $('#skin').val(), eye: $('#eyes').val(), asset: $('#asset').val()});
-
 }(jQuery));

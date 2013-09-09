@@ -6017,15 +6017,25 @@ td.visible-print {
   top: 2px;
 }
 .eye .pupil {
-  width: 10px;
-  height: 10px;
-  margin-left: -5px;
-  margin-top: -5px;
+  width: 20px;
+  height: 20px;
+  margin-left: -10px;
+  margin-top: -10px;
   position: absolute;
   left: 50%;
   top: 50%;
   background-color: black;
   border-radius: 50%;
+}
+.eye .pupil:after{
+	content:'';
+	position:absolute;
+	left:5px;
+	top:5px;
+	width:10px;
+	height:10px;
+	background:black;
+	border-radius:50%;
 }
 .blue .pupil {
   background-color: blue;
