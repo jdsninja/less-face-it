@@ -338,7 +338,7 @@ p {
   margin: 0 0 10px;
 }
 .lead {
-  margin-bottom: 20px;
+  margin-bottom: 60px;
   font-size: 16.099999999999998px;
   font-weight: 200;
   line-height: 1.4;
@@ -6102,7 +6102,7 @@ td.visible-print {
 .dark .chin:before {
   background: #d1b68b;
 }
-#face{margin-top:30px;}
+
 #face .mustache {
   display: none;
   position: absolute;
