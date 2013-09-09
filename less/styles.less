@@ -9,6 +9,7 @@
 @face-height: 250px;
 @skin: #ffeaca;
 @skin-dark: #d1b68b;
+@skin-green: #b9dbbe;
 @line: #000;
 @forehead-h: @face-height/1.5;
 @face-width: 200px;
@@ -16,246 +17,282 @@
 @hair-color: brown;
 @chin-h: @face-height/2;
 
-// Order of thing
-.forehead-ctn {
-	z-index: 1
-}
-
-.between {
-	z-index: 2
-}
-
-.chin-ctn {
-	z-index: 1
-}
-
 // Face
-#face {
+[data-face] {
 	position: relative;
 	width: @face-width;
 	height: @face-height;
 	margin: 0 auto;
-}
-
-// Forehead
-.forehead-ctn {
-	position: absolute;
-	top: 0;
-	left: 0;
-	height: @forehead-h/2;
-	width: @face-width;
-	overflow: hidden;
-}
-
-.forehead {
-	position: absolute;
-	background: @line;
-	width: 100%;
-	height: @forehead-h;
-	width: @face-width;
-	border-radius: 50% 50% 0 0;
-	top: 0;
-	left: 0;
-	&:before {
-		content: '';
-		background: @skin;
-		width: @face-width - @border-w;
-		height: @forehead-h - 2;
-		border-radius: 50% 50% 0 0;
-		position: absolute;
-		top: @border-w / 2;
-		left: @border-w / 2;
+	// Order of thing
+	.forehead-ctn {
+		z-index: 1
 	}
-}
 
-.dark {
-	.forehead {
-		&:before {
-			background: @skin-dark;
-		}
+	.between {
+		z-index: 2
 	}
-}
 
-// between forehead and chin
-.face-ctn {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: @face-width
-}
+	.chin-ctn {
+		z-index: 1
+	}
 
-.between {
-	bottom: @chin-h/2;
-	width: @face-width;
-	background: @line;
-	position: absolute;
-	top: @forehead-h / 2;
-	&:before {
-		content: '';
-		background: @skin;
-		width: @face-width - @border-w;
-		height: 100%;
+	// Forehead
+	.forehead-ctn {
 		position: absolute;
 		top: 0;
-		left: @border-w / 2;
+		left: 0;
+		height: @forehead-h/2;
+		width: @face-width;
+		overflow: hidden;
 	}
-}
 
-.dark {
-	.between {
+	.forehead {
+		position: absolute;
+		background: @line;
+		width: 100%;
+		height: @forehead-h;
+		width: @face-width;
+		border-radius: 50% 50% 0 0;
+		top: 0;
+		left: 0;
 		&:before {
-			background: @skin-dark;
+			content: '';
+			background: @skin;
+			width: @face-width - @border-w;
+			height: @forehead-h - 2;
+			border-radius: 50% 50% 0 0;
+			position: absolute;
+			top: @border-w / 2;
+			left: @border-w / 2;
 		}
 	}
-}
 
-// Eyes
-@eyes-h: 50px;
-.eyes {
-	top: 0;
-	position: absolute;
-	width: 100%;
-	z-index: 2;
-}
+	&.dark {
+		.forehead {
+			&:before {
+				background: @skin-dark;
+			}
+		}
+	}
 
-.eye {
-	position: absolute;
-	width: @eyes-h;
-	height: @eyes-h;
-	border-radius: 50%;
-	background: @line;
-	top: 0;
-	&.left {
-		left: 50%;
-		margin-left: -60px;
+	&.green {
+		.forehead {
+			&:before {
+				background: @skin-green;
+			}
+		}
 	}
-	&.right {
-		left: 50%;
-		margin-left: 5px;
-	}
-	&:before {
-		content: '';
-		border-radius: 50%;
-		background: #fff;
-		width: @eyes-h - @border-w;
-		height: @eyes-h - @border-w;
+
+	// between forehead and chin
+	.face-ctn {
 		position: absolute;
-		left: @border-w / 2;
-		top: @border-w / 2;
+		top: 0;
+		left: 0;
+		width: @face-width
 	}
-	.pupil {
-		width: 10px;
-		height: 10px;
-		margin-left: -5px;
-		margin-top: -5px;
+
+	.between {
+		bottom: @chin-h/2;
+		width: @face-width;
+		background: @line;
 		position: absolute;
-		left: 50%;
-		top: 50%;
-		background-color: black;
+		top: @forehead-h / 2;
+		&:before {
+			content: '';
+			background: @skin;
+			width: @face-width - @border-w;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			left: @border-w / 2;
+		}
+	}
+
+	&.dark {
+		.between {
+			&:before {
+				background: @skin-dark;
+			}
+		}
+	}
+	&.green {
+		.between {
+			&:before {
+				background: @skin-green;
+			}
+		}
+	}
+
+	// Eyes
+	@eyes-h: 50px;
+	.eyes {
+		top: 0;
+		position: absolute;
+		width: 100%;
+		z-index: 2;
+	}
+
+	.eye {
+		position: absolute;
+		width: @eyes-h;
+		height: @eyes-h;
 		border-radius: 50%;
+		background: @line;
+		top: 0;
+		&.left {
+			left: 50%;
+			margin-left: -60px;
+		}
+		&.right {
+			left: 50%;
+			margin-left: 5px;
+		}
+		&:before {
+			content: '';
+			border-radius: 50%;
+			background: #fff;
+			width: @eyes-h - @border-w;
+			height: @eyes-h - @border-w;
+			position: absolute;
+			left: @border-w / 2;
+			top: @border-w / 2;
+		}
+		.pupil {
+			width: 20px;
+			height: 20px;
+			margin-left: -10px;
+			margin-top: -10px;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			background-color: black;
+			border-radius: 50%;
+			&:after {
+				content: '';
+				width: 10px;
+				height: 10px;
+				margin-left: 5px;
+				margin-top: 5px;
+				position: absolute;
+				background-color: #000;
+				border-radius: 50%;
+			}
+		}
 	}
-}
 
-.blue {
-	.pupil {
-		background-color: blue;
+	&.blue {
+		.pupil {
+			background-color: blue;
+		}
 	}
-}
 
-.gray {
-	.pupil {
-		background-color: gray;
+	&.gray {
+		.pupil {
+			background-color: gray;
+		}
 	}
-}
 
-.red {
-	.pupil {
-		background-color: red;
+	&.red {
+		.pupil {
+			background-color: red;
+		}
 	}
-}
 
-.brown {
-	.pupil {
-		background-color: brown;
+	&.brown {
+		.pupil {
+			background-color: brown;
+		}
 	}
-}
 
-// Mouth - ill remove it after mustache is done
-.mouth {
-	position: absolute;
-	top: @eyes-h * 2;
+	// Mouth - ill remove it after mustache is done
+	.mouth {
+		position: absolute;
+		top: @eyes-h * 2;
 
-	width: 40px;
-	height: 20px;
-	left: 50%;
-	margin-left: -20px;
-	background-color: black;
-	border-radius: 0 0 20px 20px;
-
-	&:before {
-		content: '';
-		background: @skin;
-		width: 45px;
+		width: 40px;
 		height: 20px;
+		left: 50%;
+		margin-left: -20px;
+		background-color: black;
 		border-radius: 0 0 20px 20px;
 
-		position: absolute;
-		top: -3px;
-		left: -2px;
+		&:before {
+			content: '';
+			background: @skin;
+			width: 45px;
+			height: 20px;
+			border-radius: 0 0 20px 20px;
+
+			position: absolute;
+			top: -3px;
+			left: -2px;
+		}
+
 	}
 
-}
-
-.dark {
-	.mouth {
-		&:before {
-			background: @skin-dark;
+	&.dark {
+		.mouth {
+			&:before {
+				background: @skin-dark;
+			}
 		}
 	}
-}
+	&.green {
+		.mouth {
+			&:before {
+				background: @skin-green;
+			}
+		}
+	}
 
-// Chin
-.chin-ctn {
-	position: absolute;
-	left: 0;
-	width: @face-width;
-	height: @chin-h/2;
-	bottom: 0;
-	overflow: hidden;
-}
+	// Chin
+	.chin-ctn {
+		position: absolute;
+		left: 0;
+		width: @face-width;
+		height: @chin-h/2;
+		bottom: 0;
+		overflow: hidden;
+	}
 
-.chin {
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	background: @line;
-	width: 100%;
-	height: @chin-h;
-	border-radius: 0 0 50% 50%;
-	&:before {
-		content: '';
-		background: @skin;
-		width: @face-width - @border-w;
+	.chin {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		background: @line;
+		width: 100%;
 		height: @chin-h;
 		border-radius: 0 0 50% 50%;
-
-		position: absolute;
-		top: -@border-w/2;
-		left: @border-w / 2;
-	}
-}
-
-.dark {
-	.chin {
 		&:before {
-			background: @skin-dark;
+			content: '';
+			background: @skin;
+			width: @face-width - @border-w;
+			height: @chin-h;
+			border-radius: 0 0 50% 50%;
+
+			position: absolute;
+			top: -@border-w/2;
+			left: @border-w / 2;
 		}
 	}
-}
 
-// Mustache
-@mustache-w: 195px;
-#face {
+	&.dark {
+		.chin {
+			&:before {
+				background: @skin-dark;
+			}
+		}
+	}
+	&.green {
+		.chin {
+			&:before {
+				background: @skin-green;
+			}
+		}
+	}
+
+	// Mustache
+	@mustache-w: 195px;
 	.mustache {
 		display: none;
 		position: absolute;
@@ -321,6 +358,16 @@
 			}
 		}
 	}
+	&.green {
+		.mustache {
+			.left,
+			.right {
+				&:after {
+					background: @skin-green;
+				}
+			}
+		}
+	}
 
 	&.mustache {
 		.mustache {
@@ -328,10 +375,9 @@
 		}
 	}
 
-}
 
-#face {
 
+	// Glasses
 	.glasses {
 		display: none;
 		position: absolute;
@@ -369,9 +415,7 @@
 			}
 		}
 	}
-}
 
-#face {
 	&.glasses {
 		.glasses {
 			display: block

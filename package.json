@@ -1,0 +1,18 @@
+{
+  "name": "LESS Face It",
+  "version": "0.0.0",
+  "description": "Create face with LESS, CSS3 & JavaScript",
+  "main": "index.HTML",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://jeromeds@github.com/jeromeds/less-face-it.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "grunt": "~0.4.1"
+  }
+}
