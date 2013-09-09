@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="css/styles.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+
+<div class="container col-lg-6 col-lg-offset-3">
+
+	<div class="jumbotron settings">
+		<h1>LESS Face it</h1>
+
+		<p class="lead">I have no hair, <select name="skin" id="skin">
+			<option value="dark">dark</option>
+			<option value="light">light</option>
+		</select> skin, <select name="eyes" id="eyes">
+			<option value="blue">blue</option>
+			<option value="brown">brown</option>
+			<option value="red">red</option>
+		</select> eyes and I have <select name="asset" id="asset">
+			<option value="mustache">hipster mustache</option>
+			<option value="glasses">nerd glasses</option>
+		</select>.
+		</p>
+		<button class="reset btn btn-warning">Reset that face</button>
+	</div>
+
+	<div class="row marketing">
+
+
+		<div id="face">
+			<div class="forehead-ctn">
+				<div class="forehead"></div>
+			</div>
+			<div class="between">
+				<div class="face-ctn">
+					<div class="eyes">
+						<div class="eye left">
+							<div class="pupil"></div>
+						</div>
+						<div class="eye right">
+							<div class="pupil"></div>
+						</div>
+					</div>
+					<div class="glasses">
+						<div class="left"></div>
+						<div class="right"></div>
+					</div>
+					<div class="mustache small">
+						<div class="left"></div>
+						<div class="right"></div>
+					</div>
+					<div class="mouth"></div>
+				</div>
+			</div>
+			<div class="chin-ctn">
+				<div class="chin"></div>
+			</div>
+
+		</div>
+	</div>
+	<div class="footer">
+		<p>© Jérôme D.Soucy 2013</p>
+	</div>
+</div>
+
+
+<script src="bower_components/jquery/jquery.min.js"></script>
+<script>
+	(function ($) {
+		"use strict";
+		$.fn.faceit = function (action, options) {
+			// Default option
+			var settings = $.extend( {}, $.fn.faceit.defaults, options );
+
+			// Face part
+			var eye = this.find('.eyes'),
+					mouth = this.find('.mouth'),
+					mustache = this.find('.mustache'),
+					forehead = this.find('.forehead-ctn'),
+					chin = this.find('.chin-ctn');
+
+			if (action == 'destroy') {
+				this.removeClass();
+			} else {
+				// Greenify the collection based on the settings variable.
+				this.removeClass();
+				return this.addClass(settings.skin + ' ' + settings.eye + ' ' + settings.asset);
+			}
+		};
+		$.fn.faceit.defaults = {
+			skin: 'light',
+			outline: '#000',
+			eye: 'black',
+			asset: 'mustache'
+		};
+
+		// Change face
+		$(".settings select").change(function () {
+			var elm = $(elm),
+					elmID = elm.attr('id'),
+					elmVal = $(this).val();
+			$("#face").faceit('', {skin: $('#skin').val(), eye: $('#eyes').val(), asset: $('#asset').val()});
+		});
+
+
+		// Reset face
+		$(".btn.reset").on('click',function (e) {
+			e.preventDefault();
+			$("#face").faceit('destroy');
+			$(".settings select option:first").attr('selected','selected');
+
+		});
+
+
+		// Generate face
+		$("#face").faceit('', {skin: $('#skin').val(), eye: $('#eyes').val(), asset: $('#asset').val()});
+
+	}(jQuery));
+
+</script>
+
+</body>
+</html>

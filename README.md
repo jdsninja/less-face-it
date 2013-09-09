@@ -1,4 +1,8 @@
-less-face-it
-============
+LESS Face it
+========
 
-Create face with LESS, CSS3 &amp; JavaScript
+This is a jQuery plugin using [LESS](http://lesscss.org) has no title attribute. to generate face in CSS.
+
+You need [Bower](http://bower.io) to install dependencies.
+
+

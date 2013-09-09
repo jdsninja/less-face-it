@@ -1,0 +1,28 @@
+{
+  "name": "Less face it",
+  "version": "0.0.1",
+  "authors": [
+    "Jérôme D.Soucy <hello@jeromeds.com>"
+  ],
+  "description": "Generated face using LESS quand jQuery",
+  "main": "index.html",
+  "keywords": [
+    "less",
+    "jquery",
+    "plugin",
+    "css3"
+  ],
+  "license": "MIT",
+  "homepage": "http://jeromeds.com",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.0.3",
+    "bootstrap": "~3.0.0"
+  }
+}
