@@ -6102,6 +6102,7 @@ td.visible-print {
 .dark .chin:before {
   background: #d1b68b;
 }
+#face{margin-top:30px;}
 #face .mustache {
   display: none;
   position: absolute;
